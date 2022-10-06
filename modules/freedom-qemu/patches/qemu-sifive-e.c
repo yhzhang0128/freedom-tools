@@ -60,6 +60,9 @@ static const struct MemmapEntry {
     [SIFIVE_E_DEV_OTP] =      {    0x20000,     0x2000 },
     [SIFIVE_E_DEV_TEST] =     {   0x100000,     0x1000 },
     [SIFIVE_E_DEV_CLINT] =    {  0x2000000,    0x10000 },
+
+    [SIFIVE_E_DEV_ITIM] =     {  0x8000000,    0x10000 },
+
     [SIFIVE_E_DEV_PLIC] =     {  0xc000000,  0x4000000 },
     [SIFIVE_E_DEV_AON] =      { 0x10000000,     0x8000 },
     [SIFIVE_E_DEV_PRCI] =     { 0x10008000,     0x8000 },
@@ -95,6 +98,13 @@ static void sifive_e_machine_init(MachineState *machine)
         memmap[SIFIVE_E_DEV_DTIM].size, &error_fatal);
     memory_region_add_subregion(sys_mem,
         memmap[SIFIVE_E_DEV_DTIM].base, main_mem);
+
+    /* Instruction Tightly Integrated Memory */
+    MemoryRegion *itim_mem = g_new(MemoryRegion, 1);
+    memory_region_init_ram(itim_mem, NULL, "riscv.sifive.e.itim",
+        memmap[SIFIVE_E_DEV_ITIM].size, &error_fatal);
+    memory_region_add_subregion(sys_mem,
+        memmap[SIFIVE_E_DEV_ITIM].base, itim_mem);
 
     /* Mask ROM reset vector */
     uint32_t reset_vec[4];

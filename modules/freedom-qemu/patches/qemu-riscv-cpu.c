@@ -171,9 +171,9 @@ static void rvxx_sifive_u_cpu_init(Object *obj)
 static void rvxx_sifive_e_cpu_init(Object *obj)
 {
     CPURISCVState *env = &RISCV_CPU(obj)->env;
-    set_misa(env, RVXLEN | RVI | RVM | RVA | RVC | RVU | RVB);
+    set_misa(env, RVXLEN | RVI | RVM | RVA | RVF | RVD | RVC | RVS | RVU | RVB);
     set_priv_version(env, PRIV_VERSION_1_10_0);
-    qdev_prop_set_bit(DEVICE(obj), "mmu", false);
+    //qdev_prop_set_bit(DEVICE(obj), "mmu", false);
 }
 
 #if defined(TARGET_RISCV32)

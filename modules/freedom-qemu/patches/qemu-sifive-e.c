@@ -61,7 +61,7 @@ static const struct MemmapEntry {
     [SIFIVE_E_DEV_TEST] =     {   0x100000,     0x1000 },
     [SIFIVE_E_DEV_CLINT] =    {  0x2000000,    0x10000 },
 
-    [SIFIVE_E_DEV_ITIM] =     {  0x8000000,    0x10000 },
+    [SIFIVE_E_DEV_ITIM] =     {  0x8000000,  0x2000000 },
 
     [SIFIVE_E_DEV_PLIC] =     {  0xc000000,  0x4000000 },
     [SIFIVE_E_DEV_AON] =      { 0x10000000,     0x8000 },

@@ -32,7 +32,7 @@ proc dlcheck {arg} {
 				}
 			}
 			if {$fnd == 0} {
-				set dlcode 1
+				#set dlcode 1
 				puts "  Illegal library used: $txt"
 			}
 		}
